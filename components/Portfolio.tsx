@@ -27,7 +27,7 @@ const Portfolio: React.FC = () => {
     : PROJECTS.filter((p) => p.category === activeFilter);
 
   return (
-    <Section id="portfolio">
+    <Section id="portfolio" className="bg-slate-50">
       <SectionTitle>Our Work</SectionTitle>
       
       {/* Filters */}
@@ -38,8 +38,8 @@ const Portfolio: React.FC = () => {
             onClick={() => setActiveFilter(category)}
             className={`px-4 py-2 text-sm font-semibold rounded-full transition-all duration-300 ${
               activeFilter === category
-                ? 'bg-teal-500 text-white shadow-lg shadow-teal-500/25'
-                : 'bg-slate-800 text-gray-300 hover:bg-slate-700 hover:text-white'
+                ? 'bg-teal-600 text-white shadow-lg shadow-teal-600/10'
+                : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 hover:text-slate-900'
             }`}
           >
             {category}
@@ -53,20 +53,22 @@ const Portfolio: React.FC = () => {
           <div 
             key={project.id} 
             onClick={() => setSelectedProject(project)}
-            className="group relative cursor-pointer overflow-hidden rounded-xl bg-slate-800/50 border border-slate-700/50 shadow-lg transition-all duration-300 hover:scale-[1.02] hover:border-teal-500/50 hover:shadow-teal-500/5 aspect-w-4 aspect-h-3"
+            className="group relative cursor-pointer overflow-hidden rounded-xl bg-white border border-slate-200/60 shadow-sm transition-all duration-300 hover:scale-[1.02] hover:border-teal-500/50 hover:shadow-lg hover:shadow-slate-200/50 flex flex-col"
           >
-            <div className="w-full h-48 md:h-56 overflow-hidden">
+            <div className="w-full h-48 md:h-56 overflow-hidden border-b border-slate-100">
               <img 
                 src={project.imageUrl} 
                 alt={project.title} 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
               />
             </div>
-            <div className="p-5">
-              <span className="text-xs font-semibold tracking-wider uppercase text-teal-400">{project.category}</span>
-              <h3 className="text-lg font-bold text-white mt-1 group-hover:text-teal-300 transition-colors">{project.title}</h3>
-              <p className="mt-2 text-sm text-gray-400 line-clamp-2">{project.description}</p>
-              <div className="mt-4 flex items-center text-sm font-semibold text-teal-400 group-hover:text-teal-300">
+            <div className="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-bold tracking-wider uppercase text-teal-600">{project.category}</span>
+                <h3 className="text-lg font-bold text-slate-900 mt-1 group-hover:text-teal-600 transition-colors">{project.title}</h3>
+                <p className="mt-2 text-sm text-slate-500 font-light line-clamp-2">{project.description}</p>
+              </div>
+              <div className="mt-4 flex items-center text-sm font-semibold text-teal-600 group-hover:text-teal-700">
                 View Project Details
                 <svg className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -79,20 +81,20 @@ const Portfolio: React.FC = () => {
 
       {/* Details Modal */}
       {selectedProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-fade-in">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fade-in" onClick={() => setSelectedProject(null)}>
           <div 
-            className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl"
+            className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-white border border-slate-100 rounded-2xl shadow-2xl flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="sticky top-0 z-10 flex items-center justify-between p-6 bg-slate-900/90 backdrop-blur border-b border-slate-800/80">
+            <div className="sticky top-0 z-10 flex items-center justify-between p-6 bg-white/95 backdrop-blur border-b border-slate-100">
               <div>
-                <span className="text-xs font-semibold tracking-wider uppercase text-teal-400">{selectedProject.category}</span>
-                <h3 className="text-2xl font-bold text-white mt-1">{selectedProject.title}</h3>
+                <span className="text-xs font-bold tracking-wider uppercase text-teal-600">{selectedProject.category}</span>
+                <h3 className="text-2xl font-black text-slate-900 mt-1">{selectedProject.title}</h3>
               </div>
               <button 
                 onClick={() => setSelectedProject(null)}
-                className="p-1 rounded-full text-gray-400 hover:text-white hover:bg-slate-800 transition-colors"
+                className="p-1 rounded-full text-slate-400 hover:text-slate-900 hover:bg-slate-100 transition-colors"
                 aria-label="Close modal"
               >
                 <XMarkIcon className="h-6 w-6" />
@@ -100,8 +102,8 @@ const Portfolio: React.FC = () => {
             </div>
 
             {/* Content */}
-            <div className="p-6 space-y-6">
-              <div className="w-full h-64 overflow-hidden rounded-xl border border-slate-800">
+            <div className="p-6 space-y-6 overflow-y-auto">
+              <div className="w-full h-64 overflow-hidden rounded-xl border border-slate-100 shadow-sm">
                 <img 
                   src={selectedProject.imageUrl} 
                   alt={selectedProject.title} 
@@ -110,17 +112,17 @@ const Portfolio: React.FC = () => {
               </div>
 
               <div>
-                <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-400">Overview</h4>
-                <p className="mt-2 text-base leading-relaxed text-gray-300">{selectedProject.description}</p>
+                <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-500">Overview</h4>
+                <p className="mt-2 text-base leading-relaxed text-slate-600 font-light">{selectedProject.description}</p>
               </div>
 
               {selectedProject.features && selectedProject.features.length > 0 && (
                 <div>
-                  <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-400">Key Features</h4>
+                  <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-500">Key Features</h4>
                   <ul className="mt-3 space-y-2.5">
                     {selectedProject.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start text-sm text-gray-300">
-                        <CheckIcon className="h-5 w-5 text-teal-400 mr-2.5 flex-shrink-0 mt-0.5" />
+                      <li key={idx} className="flex items-start text-sm text-slate-600 font-light">
+                        <CheckIcon className="h-5 w-5 text-teal-600 mr-2.5 flex-shrink-0 mt-0.5" />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -130,12 +132,12 @@ const Portfolio: React.FC = () => {
 
               {selectedProject.techStack && selectedProject.techStack.length > 0 && (
                 <div>
-                  <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-400">Tech Stack</h4>
+                  <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-500">Tech Stack</h4>
                   <div className="mt-3 flex flex-wrap gap-2">
                     {selectedProject.techStack.map((tech) => (
                       <span 
                         key={tech} 
-                        className="inline-flex items-center rounded-md bg-teal-400/5 px-2.5 py-1.5 text-xs font-medium text-teal-300 ring-1 ring-inset ring-teal-400/20"
+                        className="inline-flex items-center rounded-md bg-teal-50 px-2.5 py-1.5 text-xs font-semibold text-teal-600 ring-1 ring-inset ring-teal-500/10"
                       >
                         {tech}
                       </span>
@@ -146,16 +148,16 @@ const Portfolio: React.FC = () => {
             </div>
 
             {/* Footer */}
-            <div className="p-6 bg-slate-900 border-t border-slate-800/80 flex flex-wrap gap-3 sm:justify-end">
+            <div className="p-6 bg-slate-50 border-t border-slate-100 flex flex-wrap gap-3 sm:justify-end">
               {selectedProject.githubUrl && (
                 <a 
                   href={selectedProject.githubUrl} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-lg border border-slate-700 bg-slate-800 hover:bg-slate-700 px-4 py-2.5 text-sm font-semibold text-white transition-all active:scale-95"
+                  className="inline-flex items-center justify-center rounded-lg border border-slate-200 bg-white hover:bg-slate-50 px-4 py-2.5 text-sm font-bold text-slate-700 transition-all active:scale-95 shadow-sm"
                 >
                   GitHub Repository
-                  <ExternalLinkIcon className="ml-2 h-4 w-4" />
+                  <ExternalLinkIcon className="ml-2 h-4 w-4 text-slate-400" />
                 </a>
               )}
               {selectedProject.demoUrl && (
@@ -163,7 +165,7 @@ const Portfolio: React.FC = () => {
                   href={selectedProject.demoUrl} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-lg bg-teal-500 hover:bg-teal-400 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-teal-500/20 transition-all active:scale-95"
+                  className="inline-flex items-center justify-center rounded-lg bg-slate-900 hover:bg-slate-800 px-4 py-2.5 text-sm font-bold text-white transition-all active:scale-95 shadow-sm"
                 >
                   Live Demo
                   <ExternalLinkIcon className="ml-2 h-4 w-4" />
@@ -171,7 +173,7 @@ const Portfolio: React.FC = () => {
               )}
               <button 
                 onClick={() => setSelectedProject(null)}
-                className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-slate-800 hover:bg-slate-700 px-4 py-2.5 text-sm font-semibold text-gray-300 hover:text-white transition-all"
+                className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-slate-200 hover:bg-slate-300 px-4 py-2.5 text-sm font-bold text-slate-700 transition-all"
               >
                 Close
               </button>

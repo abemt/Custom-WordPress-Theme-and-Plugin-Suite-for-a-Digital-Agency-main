@@ -20,19 +20,19 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-slate-900 border-t border-slate-800/50">
-      <div className="container mx-auto max-w-6xl py-12 px-4 sm:px-6 lg:px-8">
+    <footer className="bg-white border-t border-slate-100 py-12 shadow-sm">
+      <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="md:flex md:items-center md:justify-between">
           <div className="flex justify-center space-x-6 md:order-2">
             {socialLinks.map((item) => (
-              <a key={item.name} href={item.href} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-400 transition-colors duration-200">
+              <a key={item.name} href={item.href} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-teal-600 transition-colors duration-200">
                 <span className="sr-only">{item.name}</span>
                 {item.icon}
               </a>
             ))}
           </div>
           <div className="mt-8 md:mt-0 md:order-1">
-            <p className="text-center text-base text-gray-400">&copy; {new Date().getFullYear()} WP-Architect. All rights reserved.</p>
+            <p className="text-center text-base text-slate-500 font-light">&copy; {new Date().getFullYear()} Abem Tadele. All rights reserved.</p>
           </div>
         </div>
       </div>

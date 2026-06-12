@@ -8,25 +8,25 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="hero" className="relative h-screen flex items-center justify-center text-center bg-cover bg-center" style={{ backgroundImage: "url('https://picsum.photos/seed/hero/1920/1080')" }}>
-      <div className="absolute inset-0 bg-slate-900/70"></div>
+    <section id="hero" className="relative h-screen flex items-center justify-center text-center bg-white bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:16px_16px]">
+      <div className="absolute inset-0 bg-gradient-to-b from-teal-50/20 via-transparent to-transparent"></div>
       <div className="relative z-10 max-w-3xl px-4 animate-fade-in">
-        <span className="inline-flex items-center rounded-full bg-teal-400/10 px-4 py-1.5 text-sm font-semibold text-teal-400 ring-1 ring-inset ring-teal-400/20 mb-6">
-          Lead WordPress Architect (React & PHP)
+        <span className="inline-flex items-center rounded-full bg-teal-50 px-4 py-1.5 text-sm font-semibold text-teal-600 ring-1 ring-inset ring-teal-500/20 mb-6">
+          Abem Tadele — Lead WordPress Architect (React & PHP)
         </span>
-        <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl bg-gradient-to-r from-white via-slate-100 to-teal-400 bg-clip-text text-transparent">
+        <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl md:text-6xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 bg-clip-text text-transparent">
           Headless WordPress & React.js Portal
         </h1>
-        <p className="mt-6 text-lg leading-8 text-gray-300 font-light">
+        <p className="mt-6 text-lg leading-8 text-slate-600 font-light max-w-2xl mx-auto">
           A custom headless WordPress (PHP) platform utilizing GraphQL and a React.js frontend, bridging the power of WordPress content management with the performance and interactivity of a modern React single-page app.
         </p>
         <div className="mt-10">
           <a
             href="#contact"
             onClick={handleScrollToContact}
-            className="rounded-md bg-teal-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500 transition-all duration-150 ease-in-out active:scale-95"
+            className="rounded-lg bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 transition-all duration-150 ease-in-out active:scale-95"
           >
-            Get a Quote
+            Get in Touch
           </a>
         </div>
       </div>
