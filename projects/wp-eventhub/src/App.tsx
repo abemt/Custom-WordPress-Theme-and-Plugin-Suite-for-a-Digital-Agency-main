@@ -37,18 +37,18 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans relative">
+    <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col font-sans relative">
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-slate-800 bg-slate-900/80 backdrop-blur px-6 py-4 flex items-center justify-between">
+      <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white px-6 py-4 flex items-center justify-between shadow-sm">
         <div className="flex items-center space-x-3">
-          <div className="h-9 w-9 rounded-lg bg-teal-500 flex items-center justify-center shadow-lg shadow-teal-500/20">
-            <svg className="h-5 w-5 text-slate-950" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="h-9 w-9 rounded-lg bg-teal-600 flex items-center justify-center shadow-lg shadow-teal-600/20">
+            <svg className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
           </div>
           <div>
-            <h1 className="text-lg font-black tracking-tight text-white">WP-EventHub Portal</h1>
-            <p className="text-xs text-slate-400">Wordpress Ticketing & Scheduling</p>
+            <h1 className="text-lg font-black tracking-tight text-slate-900">WP-EventHub Portal</h1>
+            <p className="text-xs text-slate-500 font-light">Wordpress Ticketing & Scheduling</p>
           </div>
         </div>
       </header>
@@ -58,8 +58,8 @@ export default function App() {
         {/* Left Column: Events List */}
         <div className="lg:col-span-2 space-y-6">
           <div>
-            <h2 className="text-2xl font-black text-white">Available Conferences</h2>
-            <p className="text-xs text-slate-400 mt-1">Select an event below to configure your ticketing registration.</p>
+            <h2 className="text-2xl font-black text-slate-900">Available Conferences</h2>
+            <p className="text-xs text-slate-500 font-light mt-1">Select an event below to configure your ticketing registration.</p>
           </div>
 
           <div className="space-y-4">
@@ -70,20 +70,20 @@ export default function App() {
                   setSelectedEvent(event);
                   setIsBooked(false);
                 }}
-                className={`p-5 rounded-2xl border transition-all cursor-pointer ${
+                className={`p-5 rounded-2xl border transition-all cursor-pointer flex flex-col justify-between ${
                   selectedEvent.id === event.id 
-                    ? 'bg-slate-900 border-teal-500/50 shadow-lg shadow-teal-500/5' 
-                    : 'bg-slate-900/40 border-slate-850 hover:border-slate-800'
+                    ? 'bg-teal-50/15 border-teal-500/50 shadow-md shadow-slate-100' 
+                    : 'bg-white border-slate-200/80 hover:border-slate-350 hover:shadow-sm'
                 }`}
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-teal-400 font-semibold uppercase tracking-wider">{event.date}</span>
-                  <span className="text-sm font-bold text-white">${event.price} starting</span>
+                  <span className="text-xs text-teal-600 font-bold uppercase tracking-wider">{event.date}</span>
+                  <span className="text-sm font-bold text-slate-900">${event.price} starting</span>
                 </div>
-                <h3 className="text-base font-bold text-white mt-1.5">{event.title}</h3>
-                <p className="text-xs text-slate-400 mt-2 leading-relaxed">{event.description}</p>
-                <div className="mt-4 flex items-center text-xs text-slate-500">
-                  <svg className="h-4 w-4 mr-1 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <h3 className="text-base font-bold text-slate-900 mt-1.5">{event.title}</h3>
+                <p className="text-xs text-slate-500 font-light mt-2 leading-relaxed">{event.description}</p>
+                <div className="mt-4 flex items-center text-xs text-slate-400 font-semibold">
+                  <svg className="h-4 w-4 mr-1 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
@@ -95,50 +95,50 @@ export default function App() {
         </div>
 
         {/* Right Column: Ticket Booking Panel */}
-        <div className="bg-slate-900 border border-slate-850 p-6 rounded-2xl shadow-xl">
+        <div className="bg-white border border-slate-200 p-6 rounded-2xl shadow-lg">
           {!isBooked ? (
             <form onSubmit={handleBook} className="space-y-5">
               <div>
-                <span className="text-[10px] uppercase font-bold tracking-wider text-slate-500">Active Event Selection</span>
-                <h3 className="text-sm font-bold text-white mt-1 truncate">{selectedEvent.title}</h3>
+                <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400 block font-bold">Active Event Selection</span>
+                <h3 className="text-sm font-bold text-slate-900 mt-1 truncate">{selectedEvent.title}</h3>
               </div>
 
-              <div className="border-t border-slate-850 my-2"></div>
+              <div className="border-t border-slate-100 my-2"></div>
 
               <div>
-                <label className="block text-xs uppercase tracking-wider font-semibold text-slate-400 mb-1">Full Name</label>
+                <label className="block text-xs uppercase tracking-wider font-semibold text-slate-500 mb-1">Full Name</label>
                 <input 
                   type="text" 
                   required 
                   value={name}
                   onChange={e => setName(e.target.value)}
                   placeholder="Alex Johnson"
-                  className="w-full px-3 py-2 bg-slate-950 border border-slate-850 rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-teal-500" 
+                  className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-900 focus:outline-none focus:ring-1 focus:ring-teal-500 focus:bg-white" 
                 />
               </div>
 
               <div>
-                <label className="block text-xs uppercase tracking-wider font-semibold text-slate-400 mb-1">Email Address</label>
+                <label className="block text-xs uppercase tracking-wider font-semibold text-slate-500 mb-1">Email Address</label>
                 <input 
                   type="email" 
                   required 
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                   placeholder="alex@wp-architect.com"
-                  className="w-full px-3 py-2 bg-slate-950 border border-slate-850 rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-teal-500" 
+                  className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-900 focus:outline-none focus:ring-1 focus:ring-teal-500 focus:bg-white" 
                 />
               </div>
 
               <div>
-                <label className="block text-xs uppercase tracking-wider font-semibold text-slate-400 mb-2">Ticket Tier</label>
+                <label className="block text-xs uppercase tracking-wider font-semibold text-slate-500 mb-2">Ticket Tier</label>
                 <div className="grid grid-cols-2 gap-2">
                   <button
                     type="button"
                     onClick={() => setTicketType('standard')}
                     className={`py-2 text-xs font-bold rounded-lg border transition-all ${
                       ticketType === 'standard' 
-                        ? 'bg-slate-800 border-teal-500 text-teal-400' 
-                        : 'bg-slate-950 border-slate-850 text-slate-400'
+                        ? 'bg-slate-100 border-teal-500 text-teal-600 font-bold' 
+                        : 'bg-white border-slate-200 text-slate-500 hover:text-slate-800'
                     }`}
                   >
                     Standard
@@ -148,8 +148,8 @@ export default function App() {
                     onClick={() => setTicketType('vip')}
                     className={`py-2 text-xs font-bold rounded-lg border transition-all ${
                       ticketType === 'vip' 
-                        ? 'bg-slate-800 border-teal-500 text-teal-400' 
-                        : 'bg-slate-950 border-slate-850 text-slate-400'
+                        ? 'bg-slate-100 border-teal-500 text-teal-600 font-bold' 
+                        : 'bg-white border-slate-200 text-slate-500 hover:text-slate-800'
                     }`}
                   >
                     VIP (+ $100)
@@ -157,18 +157,18 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="p-3 bg-slate-950 border border-slate-850 rounded-xl flex justify-between items-center text-xs">
-                <span className="text-slate-400 font-semibold">Total Price:</span>
-                <span className="text-base font-black text-white">${getPrice()}</span>
+              <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl flex justify-between items-center text-xs font-semibold">
+                <span className="text-slate-500">Total Price:</span>
+                <span className="text-base font-black text-slate-950">${getPrice()}</span>
               </div>
 
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-3 bg-teal-500 hover:bg-teal-400 rounded-xl font-bold text-xs text-slate-950 flex items-center justify-center transition-all active:scale-95 shadow-lg shadow-teal-500/10"
+                className="w-full py-3 bg-slate-900 hover:bg-slate-800 rounded-xl font-bold text-xs text-white flex items-center justify-center transition-all active:scale-95 shadow-md shadow-slate-900/10"
               >
                 {loading ? (
-                  <div className="h-4 w-4 border-2 border-slate-950 border-t-transparent rounded-full animate-spin"></div>
+                  <div className="h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                 ) : (
                   <span>Register for Event</span>
                 )}
@@ -176,19 +176,19 @@ export default function App() {
             </form>
           ) : (
             <div className="text-center space-y-5 animate-fade-in">
-              <div className="mx-auto h-12 w-12 bg-teal-500/10 text-teal-400 rounded-full flex items-center justify-center border border-teal-500/20">
+              <div className="mx-auto h-12 w-12 bg-teal-100/60 text-teal-700 rounded-full flex items-center justify-center border border-teal-500/20">
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
 
               <div>
-                <h3 className="text-lg font-black text-white">Ticket Confirmed</h3>
-                <p className="text-xs text-slate-400 mt-1">Order receipt sent to {email}</p>
+                <h3 className="text-lg font-black text-slate-900">Ticket Confirmed</h3>
+                <p className="text-xs text-slate-500 font-light mt-1">Order receipt sent to {email}</p>
               </div>
 
               {/* QR Code Container */}
-              <div className="bg-white p-4 rounded-xl inline-block border border-slate-200">
+              <div className="bg-white p-4 rounded-xl inline-block border border-slate-200 shadow-sm">
                 <svg className="h-32 w-32 text-slate-950" viewBox="0 0 100 100" fill="currentColor">
                   {/* Mock QR code layout */}
                   <rect x="10" y="10" width="20" height="20" />
@@ -206,15 +206,15 @@ export default function App() {
                 </svg>
               </div>
 
-              <div className="text-xs space-y-1 bg-slate-950 border border-slate-850 p-3.5 rounded-xl text-left">
-                <span className="block text-slate-400 font-semibold"><span className="text-slate-500">Attendee:</span> {name}</span>
-                <span className="block text-slate-400 font-semibold"><span className="text-slate-500">Access Tier:</span> {ticketType.toUpperCase()} PASS</span>
-                <span className="block text-slate-400 font-semibold truncate"><span className="text-slate-500">Event:</span> {selectedEvent.title}</span>
+              <div className="text-xs space-y-1 bg-slate-50 border border-slate-200 p-3.5 rounded-xl text-left">
+                <span className="block text-slate-600 font-medium"><span className="text-slate-400">Attendee:</span> {name}</span>
+                <span className="block text-slate-600 font-medium"><span className="text-slate-400">Access Tier:</span> {ticketType.toUpperCase()} PASS</span>
+                <span className="block text-slate-600 font-medium truncate"><span className="text-slate-400">Event:</span> {selectedEvent.title}</span>
               </div>
 
               <button
                 onClick={() => setIsBooked(false)}
-                className="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-white rounded-lg text-xs font-bold transition-all"
+                className="w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-bold transition-all border border-slate-250 shadow-sm"
               >
                 Book Another Ticket
               </button>
