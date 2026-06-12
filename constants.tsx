@@ -66,8 +66,8 @@ export const PROJECTS: Project[] = [
       'Integrated React contact forms and live commenting engine'
     ],
     techStack: ['React', 'Next.js', 'GraphQL', 'PHP', 'WordPress API', 'Tailwind CSS'],
-    demoUrl: 'https://demo.abemt.dev/wp-react-portal',
-    githubUrl: 'https://github.com/abemt/wp-react-portal'
+    demoUrl: './projects/wp-react-portal/index.html',
+    githubUrl: 'https://github.com/abemt/Custom-WordPress-Theme-and-Plugin-Suite-for-a-Digital-Agency-main/tree/main/projects/wp-react-portal'
   },
   {
     id: 2,
@@ -83,8 +83,8 @@ export const PROJECTS: Project[] = [
       'Optimized media delivery using local caching and WebP optimization'
     ],
     techStack: ['React', 'Redux Toolkit', 'WooCommerce REST API', 'Stripe API', 'Tailwind CSS'],
-    demoUrl: 'https://demo.abemt.dev/woo-react-spa',
-    githubUrl: 'https://github.com/abemt/woo-react-spa'
+    demoUrl: './projects/woo-react-spa/index.html',
+    githubUrl: 'https://github.com/abemt/Custom-WordPress-Theme-and-Plugin-Suite-for-a-Digital-Agency-main/tree/main/projects/woo-react-spa'
   },
   {
     id: 3,
@@ -100,8 +100,8 @@ export const PROJECTS: Project[] = [
       'REST API endpoints for trigger-based remote assets invalidation'
     ],
     techStack: ['PHP', 'WordPress Plugin API', 'JavaScript', 'CSS Parser', 'Vite'],
-    demoUrl: 'https://demo.abemt.dev/pressspeed-plugin',
-    githubUrl: 'https://github.com/abemt/pressspeed-plugin'
+    demoUrl: './projects/pressspeed-plugin/index.html',
+    githubUrl: 'https://github.com/abemt/Custom-WordPress-Theme-and-Plugin-Suite-for-a-Digital-Agency-main/tree/main/projects/pressspeed-plugin'
   },
   {
     id: 4,
@@ -117,8 +117,8 @@ export const PROJECTS: Project[] = [
       'Translation-ready block settings for global localization'
     ],
     techStack: ['React', 'WordPress Block Editor API', 'PHP', 'Webpack', 'CSS Modules'],
-    demoUrl: 'https://demo.abemt.dev/acme-blocks',
-    githubUrl: 'https://github.com/abemt/acme-blocks'
+    demoUrl: './projects/acme-blocks/index.html',
+    githubUrl: 'https://github.com/abemt/Custom-WordPress-Theme-and-Plugin-Suite-for-a-Digital-Agency-main/tree/main/projects/acme-blocks'
   },
   {
     id: 5,
@@ -134,8 +134,8 @@ export const PROJECTS: Project[] = [
       'Fully keyboard accessible (a11y) and WCAG compliant markup'
     ],
     techStack: ['WordPress FSE', 'Gutenberg Theme JSON', 'HTML5', 'Tailwind CSS', 'PHP'],
-    demoUrl: 'https://demo.abemt.dev/flexpress-theme',
-    githubUrl: 'https://github.com/abemt/flexpress-theme'
+    demoUrl: './projects/flexpress-theme/index.html',
+    githubUrl: 'https://github.com/abemt/Custom-WordPress-Theme-and-Plugin-Suite-for-a-Digital-Agency-main/tree/main/projects/flexpress-theme'
   },
   {
     id: 6,
@@ -151,8 +151,8 @@ export const PROJECTS: Project[] = [
       'Integration with Stripe and WooCommerce for payment checkouts'
     ],
     techStack: ['WordPress', 'PHP', 'React', 'WP REST API', 'Stripe API', 'Bootstrap'],
-    demoUrl: 'https://demo.abemt.dev/wp-eventhub',
-    githubUrl: 'https://github.com/abemt/wp-eventhub'
+    demoUrl: './projects/wp-eventhub/index.html',
+    githubUrl: 'https://github.com/abemt/Custom-WordPress-Theme-and-Plugin-Suite-for-a-Digital-Agency-main/tree/main/projects/wp-eventhub'
   },
 ];
 
